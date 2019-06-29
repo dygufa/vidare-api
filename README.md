@@ -25,10 +25,41 @@ URL | Body (POST) | Success Response |
 --- | --- | ---
 GET /products | - | Product[]
 GET /products/:id | - | Product
-POST /vouchers/ | Voucher | Voucher
+GET /vouchers/ | - | Voucher[]
+POST /vouchers/ | NewVoucher | Voucher
+GET /bloodDonations/ | - | BloodDonation[]
+POST /bloodDonations/ | NewBloodDonation | BloodDonation
 
 ### Types
 
+```
+type Product {
+    name: string
+    discount: number
+    imageUrl: string
+}
+
+type Voucher {
+    product: {
+        name: string
+    }
+    expiresAt: Date
+    code: string
+}
+
+type NewVoucher {
+    productId: string
+}
+
+type BloodDonation {
+    imageUrl: string
+    verified: bool
+    createdAt: Date
+}
+
+type NewBloodDonation {
+    image: string // base64
+}
 ```
 
 ## Run tests
