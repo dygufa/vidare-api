@@ -6,6 +6,17 @@
 
 ### 🏠 [Homepage](https://github.com/dygufa/sangue-api#readme)
 
+## How to run
+
+1) Initialize a mongodb instance:
+`docker run --name some-mongo -d mongo:tag`
+
+2) Install `ts-node`:
+`npm i -g ts-node`
+
+3) Run the app
+`ts-node index.ts`
+
 ## Endpoints
 
 URL | Body (POST) | Success Response |
@@ -16,13 +27,6 @@ POST /vouchers/ | Voucher | Voucher
 
 ### Types
 
-
-
-
-## Install
-
-```sh
-npm install
 ```
 
 ## Run tests
