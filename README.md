@@ -9,13 +9,15 @@
 ## How to run
 
 1) Initialize a mongodb instance:
-`docker run --name some-mongo -d mongo:tag`
+`docker run --name mongo -e MONGO_INITDB_ROOT_USERNAME=<USER> -e MONGO_INITDB_ROOT_PASSWORD=<PASSWORD> -d mongo`
 
 2) Install `ts-node`:
 `npm i -g ts-node`
 
-3) Run the app
-`ts-node index.ts`
+3) Define .env based on .env.example
+
+4) Run the app
+`ts-node src/index.ts`
 
 ## Endpoints
 
