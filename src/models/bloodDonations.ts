@@ -5,14 +5,14 @@ const BloodDonationSchema: Schema = new Schema({
     imageUrl: { type: String, required: true },
     verified: { type: Boolean, required: true },
     createdAt: { type: Date, required: true },
-    userId: { type: Schema.Types.ObjectId, required: true, unique: true },
+    user: { type: Schema.Types.ObjectId, required: true, ref: 'User' },
 });
 
 interface BloodDonation extends Document {
     imageUrl: string
     verified: boolean
     createdAt: Date
-    userId: String
+    user: String
 }
 
 export default mongoose.model<BloodDonation>('BloodDonation', BloodDonationSchema);
