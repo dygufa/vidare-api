@@ -22,14 +22,14 @@
 ## Endpoints
 
 URL | Body (POST) | Success Response | Auth
---- | --- | ---
-GET /login | NewUser | LoginResponse
-GET /products | - | Product[]
-GET /products/:id | - | Product
-GET /vouchers/ | - | Voucher[]
-POST /vouchers/ | NewVoucher | Voucher
-GET /bloodDonations/ | - | BloodDonation[]
-POST /bloodDonations/ | NewBloodDonation | BloodDonation
+--- | --- | --- | ---
+GET /login | NewUser | LoginResponse | Not required
+GET /products | - | Product[] | Required
+GET /products/:id | - | Product | Required
+GET /vouchers/ | - | Voucher[] | Required
+POST /vouchers/ | NewVoucher | Voucher | Required
+GET /bloodDonations/ | - | BloodDonation[] | Required
+POST /bloodDonations/ | NewBloodDonation | BloodDonation | Required
 
 ### Types
 
