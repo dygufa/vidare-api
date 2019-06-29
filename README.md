@@ -21,7 +21,7 @@
 
 ## Endpoints
 
-URL | Body (POST) | Success Response | Auth
+URL | Body (POST) | Success Response | Auth*
 --- | --- | --- | ---
 GET /login | NewUser | LoginResponse | Not required
 GET /products | - | Product[] | Required
@@ -30,6 +30,9 @@ GET /vouchers/ | - | Voucher[] | Required
 POST /vouchers/ | NewVoucher | Voucher | Required
 GET /bloodDonations/ | - | BloodDonation[] | Required
 POST /bloodDonations/ | NewBloodDonation | BloodDonation | Required
+
+Endpoints that requires authentication must receive an `Authorization` header in the following format:
+`Authorization: Bearer <JWT TOKEN RECEIVED ON LOGIN RESPONSE>`
 
 ### Types
 
