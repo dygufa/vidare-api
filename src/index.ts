@@ -1,5 +1,6 @@
 import express from "express";
 import { ProductController } from "./controllers";
+import "./mongoose";
 
 const PORT = 8000;
 
