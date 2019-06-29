@@ -1,3 +1,4 @@
-import ProductModel from "./products";
+import ProductModel from './products';
+import UserModel from './users';
 
-export { ProductModel };
+export { ProductModel, UserModel };
