@@ -1,4 +1,6 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import * as mongoose from 'mongoose';
+import { Schema, Document } from 'mongoose';
+
 
 const ProductSchema: Schema = new Schema({
     id: { type: Schema.Types.ObjectId, required: true, unique: true },
