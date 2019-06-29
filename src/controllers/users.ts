@@ -5,7 +5,7 @@ import { expressError } from "../utils";
 import * as jwt from "jsonwebtoken";
 
 export const login = async (req: Request, res: Response) => {
-    const { googleId, name, email, avatarUrl } = req.body;
+    const { googleId, name, email, imageUrl } = req.body;
     if (!googleId) expressError(res, "googleId is not defined");
 
     let user = await UserModel.findOne({ googleId });
@@ -17,7 +17,7 @@ export const login = async (req: Request, res: Response) => {
             bloodType: null,
             level: 1,
             googleId,
-            avatarUrl,
+            imageUrl,
             createdAt: new Date()
         });
     }

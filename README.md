@@ -21,8 +21,9 @@
 
 ## Endpoints
 
-URL | Body (POST) | Success Response |
+URL | Body (POST) | Success Response | Auth
 --- | --- | ---
+GET /login | NewUser | LoginResponse
 GET /products | - | Product[]
 GET /products/:id | - | Product
 GET /vouchers/ | - | Voucher[]
@@ -33,13 +34,39 @@ POST /bloodDonations/ | NewBloodDonation | BloodDonation
 ### Types
 
 ```
+type NewUser {
+    email: string
+    familyName: string
+    givenName: string
+    googleId: string
+    imageUrl: string
+    name: string
+}
+
+type User {
+    _id: string
+    name: string
+    imageUrl: string
+    email: string
+    bloodType: string?
+    level: number
+    createdAt: Date
+}
+
+type LoginResponse {
+    user: User
+    token: string
+}
+
 type Product {
+    _id: string
     name: string
     discount: number
     imageUrl: string
 }
 
 type Voucher {
+    _id: string
     product: {
         name: string
     }
@@ -52,6 +79,7 @@ type NewVoucher {
 }
 
 type BloodDonation {
+    _id: string
     imageUrl: string
     verified: bool
     createdAt: Date
