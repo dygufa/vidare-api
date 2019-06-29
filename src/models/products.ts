@@ -3,15 +3,17 @@ import { Schema, Document } from 'mongoose';
 
 
 const ProductSchema: Schema = new Schema({
-    id: { type: String, required: true, unique: true },
     name: { type: String, required: true },
+    imageUrl: { type: String, required: true },
+    companyId: { type: String, required: true },
     discount: { type: Number, required: true }
 });
 
 interface Product extends Document {
-    id: string
     name: string
     discount: number
+    companyId: string
+    imageUrl: string
 }
 
 export default mongoose.model<Product>('Product', ProductSchema);
