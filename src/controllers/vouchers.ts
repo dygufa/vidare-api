@@ -27,6 +27,7 @@ export const postVoucher = async (req: Request, res: Response) => {
         expiresAt: moment().add(1, "month").toDate(),
         createdAt: new Date(),
         user: userId,
+        used: false,
         code: randomstring.generate({ length: 6, charset: "alphanumeric", capitalization: "uppercase" }) // TODO: verify colision
     });
 
