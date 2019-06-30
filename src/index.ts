@@ -1,6 +1,7 @@
 import * as express from "express";
 import { ProductController, VoucherController, BloodDonationController, UserController } from "./controllers";
 import * as bodyParser from "body-parser";
+import * as cors from "cors";
 import { authJWT } from "./utils";
 import "./mongoose";
 
@@ -8,10 +9,11 @@ const PORT = 8000;
 
 const app = express();
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+app.use(cors());
 
 app.post("/login", UserController.login);
-app.get("/products", authJWT, ProductController.getProducts);
+app.get("/products", ProductController.getProducts);
 app.get("/vouchers", authJWT, VoucherController.getVouchers);
 app.post("/vouchers", authJWT, VoucherController.postVoucher);
 app.get("/bloodDonations", authJWT, BloodDonationController.getBloodDonations);

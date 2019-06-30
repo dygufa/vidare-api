@@ -1,3 +1,4 @@
+require('dotenv').config();
 import { S3 } from "aws-sdk";
 import { randomBytes } from "crypto";
 import * as fileType from "file-type";
@@ -6,6 +7,7 @@ import * as mimeTypes from "mime-types";
 const s3 = new S3();
 
 const S3_BUCKET = process.env.S3_BUCKET;
+const S3_URL = `https://${S3_BUCKET}.s3.amazonaws.com/`;
 
 if (!S3_BUCKET) {
     throw new Error("S3_BUCKET must be defined");
@@ -21,17 +23,19 @@ export async function uploadFile(data: Buffer, mimeType: string) {
         mimeType = mimeTypes.lookup(mimeType).toString() || mimeType;
     }
     const type = fileType(data);
-    const fileName = `${randomBytes(32).toString("hex")}.${type ? type.ext : "pdf"}`;
+    const fileName = `${randomBytes(32).toString("hex")}.${type ? type.ext : "png"}`;
+
     await s3.putObject({
         Bucket: S3_BUCKET!,
         Key: fileName,
         Body: data,
-        ContentType: mimeType
+        ContentType: mimeType,
+        ACL: 'public-read'
     }).promise().then(result => {
         if (result.$response.error)
             throw result.$response.error;
         return result;
     });
 
-    return fileName;
+    return `${S3_URL}${fileName}`;
 }
