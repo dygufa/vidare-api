@@ -18,6 +18,13 @@ export const getVouchers = async (req: Request, res: Response) => {
 
 export const redeem = async (req: Request, res: Response) => {
     const code = req.user!.id;
+    const voucher = await VoucherModel.find({ code });
+
+    if (voucher.length == 0) {
+        expressError(res, "code is invalid");
+        return;
+    }
+
     await VoucherModel.update(
         {
             code
