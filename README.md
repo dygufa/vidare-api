@@ -72,6 +72,7 @@ type Product {
     discount: number
     imageUrl: string
     company: Company
+    price: number
 }
 
 type Voucher {
