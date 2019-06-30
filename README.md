@@ -25,6 +25,7 @@ URL | Body (POST) | Success Response | Auth*
 --- | --- | --- | ---
 GET /login | NewUser | LoginResponse | Not required
 GET /products | - | Product[] | Required
+GET /products/:id | - | Product | Required
 GET /vouchers/ | - | Voucher[] | Required
 POST /vouchers/ | NewVoucher | Voucher | Required
 GET /bloodDonations/ | - | BloodDonation[] | Required
