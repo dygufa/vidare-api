@@ -10,7 +10,9 @@ export const expressError = (res: Response, errorMsg: string) => {
 };
 
 interface JWTPayload {
-    id: string;
+    user: {
+        id: string;
+    }
 }
 
 export const authJWT = (req: Request, res: Response, next: NextFunction) => {
@@ -18,7 +20,7 @@ export const authJWT = (req: Request, res: Response, next: NextFunction) => {
 
     try {
         const jwtPayload = jwt.verify(jwtToken.replace("Bearer ", ""), process.env.JWT_SECRET!) as JWTPayload;
-        req.user = jwtPayload;
+        req.user = jwtPayload.user;
         next();
     } catch (err) {
         expressError(res, "Auth error");
