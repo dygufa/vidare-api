@@ -7,7 +7,7 @@ import * as cdn from "../cdn";
 export const getBloodDonations = async (req: Request, res: Response) => {
     const userId = req.user!.id;
     const vouchers = await BloodDonationModel.find({
-        userId,
+        user: userId,
     });
     res.json({
         ok: true,
