@@ -15,6 +15,7 @@ app.use(cors());
 app.post("/login", UserController.login);
 app.get("/products", ProductController.getProducts);
 app.get("/products/:id", ProductController.getProduct);
+app.get("/me", authJWT, UserController.me);
 app.get("/vouchers", authJWT, VoucherController.getVouchers);
 app.post("/vouchers", authJWT, VoucherController.postVoucher);
 app.get("/bloodDonations", authJWT, BloodDonationController.getBloodDonations);

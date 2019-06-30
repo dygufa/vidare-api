@@ -24,6 +24,7 @@
 URL | Body (POST) | Success Response | Auth*
 --- | --- | --- | ---
 GET /login | NewUser | LoginResponse | Not required
+GET /me | - | User | Required
 GET /products | - | Product[] | Required
 GET /products/:id | - | Product | Required
 GET /vouchers/ | - | Voucher[] | Required

@@ -36,3 +36,13 @@ export const login = async (req: Request, res: Response) => {
         }
     });
 }
+
+export const me = async (req: Request, res: Response) => {
+    const userId = req.user!.id;
+    const user = await UserModel.findById(userId);
+
+    res.json({
+        ok: true,
+        data: user
+    });
+}
