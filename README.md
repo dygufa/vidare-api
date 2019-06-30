@@ -9,7 +9,7 @@
 ## How to run
 
 1) Initialize a mongodb instance:
-`docker run --name mongo -e MONGO_INITDB_ROOT_USERNAME=<USER> -e MONGO_INITDB_ROOT_PASSWORD=<PASSWORD> -d mongo`
+`docker run --name mongo -e MONGO_INITDB_DATABASE=myapp -e MONGO_INITDB_ROOT_USERNAME=<USER> -e MONGO_INITDB_ROOT_PASSWORD=<PASSWORD> -d mongo`
 
 2) Install `ts-node`:
 `npm i -g ts-node`
@@ -25,7 +25,6 @@ URL | Body (POST) | Success Response | Auth*
 --- | --- | --- | ---
 GET /login | NewUser | LoginResponse | Not required
 GET /products | - | Product[] | Required
-GET /products/:id | - | Product | Required
 GET /vouchers/ | - | Voucher[] | Required
 POST /vouchers/ | NewVoucher | Voucher | Required
 GET /bloodDonations/ | - | BloodDonation[] | Required
@@ -61,18 +60,21 @@ type LoginResponse {
     token: string
 }
 
+type Company {
+    name: string
+}
+
 type Product {
     _id: string
     name: string
     discount: number
     imageUrl: string
+    company: Company
 }
 
 type Voucher {
     _id: string
-    product: {
-        name: string
-    }
+    product: Product
     expiresAt: Date
     code: string
 }
