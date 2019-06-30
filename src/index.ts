@@ -5,7 +5,7 @@ import * as cors from "cors";
 import { authJWT } from "./utils";
 import "./mongoose";
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 const app = express();
 
