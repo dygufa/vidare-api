@@ -6,7 +6,8 @@ const VoucherSchema: Schema = new Schema({
     user: { type: Schema.Types.ObjectId, required: true, ref: 'User' },
     code: { type: String, required: true },
     expiresAt: { type: Date, required: true },
-    createdAt: { type: Date, required: true }
+    createdAt: { type: Date, required: true },
+    used: { type: Boolean, required: true }
 });
 
 interface Voucher extends Document {
@@ -15,6 +16,7 @@ interface Voucher extends Document {
     expiresAt: Date;
     createdAt: Date;
     code: string;
+    used: boolean;
 }
 
 export default mongoose.model<Voucher>('Voucher', VoucherSchema);
