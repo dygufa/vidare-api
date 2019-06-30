@@ -18,6 +18,7 @@ app.get("/vouchers", authJWT, VoucherController.getVouchers);
 app.post("/vouchers", authJWT, VoucherController.postVoucher);
 app.get("/bloodDonations", authJWT, BloodDonationController.getBloodDonations);
 app.post("/bloodDonations", authJWT, BloodDonationController.postBloodDonations);
+app.post("/redeem", VoucherController.redeem);
 
 app.listen(PORT, () => {
     console.log(`API running on port ${PORT}`);

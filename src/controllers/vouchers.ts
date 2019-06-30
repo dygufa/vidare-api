@@ -16,6 +16,22 @@ export const getVouchers = async (req: Request, res: Response) => {
     });
 }
 
+export const redeem = async (req: Request, res: Response) => {
+    const code = req.user!.id;
+    await VoucherModel.update(
+        {
+            code
+        }, {
+            used: true
+        }
+    );
+
+    res.json({
+        ok: true,
+        data: true
+    });
+}
+
 export const postVoucher = async (req: Request, res: Response) => {
     const productId = req.body.productId;
     const userId = req.user!.id;

@@ -29,6 +29,7 @@ GET /vouchers/ | - | Voucher[] | Required
 POST /vouchers/ | NewVoucher | Voucher | Required
 GET /bloodDonations/ | - | BloodDonation[] | Required
 POST /bloodDonations/ | NewBloodDonation | BloodDonation | Required
+POST /redeem/ | { code: string } | boolean | Not required
 
 Endpoints that requires authentication must receive an `Authorization` header in the following format:
 `Authorization: Bearer <JWT TOKEN RECEIVED ON LOGIN RESPONSE>`
