@@ -7,7 +7,7 @@ const UserSchema: Schema = new Schema({
     bloodType: { type: String },
     level: { type: Number },
     googleId: { type: String, required: true },
-    avatarUrl: { type: String },
+    imageUrl: { type: String },
     createdAt: { type: Date },
 });
 
@@ -17,7 +17,7 @@ interface User extends Document {
     bloodType: String
     level: Number
     googleId: String
-    avatarUrl: String
+    imageUrl: String
     createdAt: Date
 }
 

@@ -1,5 +1,6 @@
 require('dotenv').config();
 import * as mongoose from "mongoose";
+import "./models";
 
 if (!process.env.MONGO_URL) {
     throw new Error("MONGO_URL must be defined");
