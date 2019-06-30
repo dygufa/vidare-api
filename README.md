@@ -56,6 +56,7 @@ type User {
     bloodType: string?
     level: number
     createdAt: Date
+    points: number
 }
 
 type LoginResponse {
@@ -74,6 +75,7 @@ type Product {
     imageUrl: string
     company: Company
     price: number
+    points: number
 }
 
 type Voucher {

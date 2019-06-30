@@ -7,7 +7,9 @@ const ProductSchema: Schema = new Schema({
     imageUrl: { type: String, required: true },
     company: { type: String, required: true, ref: 'Company' },
     discount: { type: Number, required: true },
-    price: { type: Number, required: true }
+    price: { type: Number, required: true },
+    points: { type: Number, required: true },
+    description: { type: String, required: true },
 });
 
 interface Product extends Document {
@@ -16,6 +18,8 @@ interface Product extends Document {
     company: string
     imageUrl: string
     price: number
+    points: number
+    description: String
 }
 
 export default mongoose.model<Product>('Product', ProductSchema);

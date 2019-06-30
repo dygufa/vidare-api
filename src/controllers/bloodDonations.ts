@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { BloodDonationModel } from "../models";
+import { BloodDonationModel, UserModel } from "../models";
 import { expressError } from "../utils";
 import * as moment from "moment";
 import * as cdn from "../cdn";
@@ -18,7 +18,10 @@ export const getBloodDonations = async (req: Request, res: Response) => {
 export const postBloodDonations = async (req: Request, res: Response) => {
     const image = req.body.image;
     const userId = req.user!.id;
-    if (!image) expressError(res, "image is not defined");
+    if (!image) {
+        expressError(res, "image is not defined");
+        return;
+    }
 
     const s3imageurl = await cdn.uploadImage(Buffer.from(image.replace(/^data:image\/[a-z]+;base64,/, ""), "base64"));
 
@@ -28,6 +31,17 @@ export const postBloodDonations = async (req: Request, res: Response) => {
         createdAt: new Date(),
         user: userId,
     });
+
+    await UserModel.update(
+        {
+            _id: userId
+        },
+        {
+            $inc: {
+                points: 100
+            }
+        }
+    );
 
     res.json({
         ok: true,

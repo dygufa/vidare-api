@@ -9,6 +9,7 @@ const UserSchema: Schema = new Schema({
     googleId: { type: String, required: true },
     imageUrl: { type: String },
     createdAt: { type: Date },
+    points: { type: Number },
 });
 
 interface User extends Document {
@@ -19,6 +20,7 @@ interface User extends Document {
     googleId: String
     imageUrl: String
     createdAt: Date
+    points: Number
 }
 
 export default mongoose.model<User>('User', UserSchema);
