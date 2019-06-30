@@ -1,5 +1,5 @@
 {
-  "name": "sangue-api",
+  "name": "vidare-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dygufa/sangue-api.git"
+    "url": "git+https://github.com/dygufa/vidare-api.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dygufa/sangue-api/issues"
+    "url": "https://github.com/dygufa/vidare-api/issues"
   },
-  "homepage": "https://github.com/dygufa/sangue-api#readme",
+  "homepage": "https://github.com/dygufa/vidare-api#readme",
   "dependencies": {
     "@types/cors": "^2.8.5",
     "@types/express": "^4.17.0",
